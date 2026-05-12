@@ -1,0 +1,338 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="csrf-token" content="kKgAiILS4fKJLCl13a2kdhcCsNK2GBZ4eN1XQq4m">
+    <link rel="stylesheet" type="text/css" href="/d5_art/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="/d5_art/css/swiper.min.css">
+    <link rel="stylesheet" type="text/css" href="/d5_art/css/style.css">
+    <title>LG전자 플래그쉽</title>
+    <style>
+        .toast-wrapper {
+            position: fixed;
+            left: 50%;
+            bottom: 24px;
+            transform: translateX(-50%);
+            z-index: 1000;
+            pointer-events: none;
+        }
+
+        .toast-message {
+            min-width: 200px;
+            max-width: 80vw;
+            padding: 14px 20px;
+            border-radius: 8px;
+            background: rgba(0, 0, 0, 0.85);
+            color: #fff;
+            font-size: 14px;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .toast-message.toast--visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .toast-message.toast--success {
+            background: #2d8f5b;
+        }
+
+        .toast-message.toast--error {
+            background: #c0392b;
+        }
+    </style>
+
+</head>
+<body>
+
+<div class="toast-wrapper" aria-live="polite" aria-atomic="true">
+    <div class="toast-message" id="toastMessage"></div>
+</div>
+
+<div class="container">
+
+    <section class="page">
+
+        <header>
+            <div class="logo"></div>
+        </header>
+
+        <div class="wrap">
+
+            <div class="contents-area is-visible" data-tabs="tabs1">
+
+                <article class="contents-header">
+                    <div class="brand-img"></div>
+
+                    <div class="info-view">
+                        <div class="main-box">SNS 인증 이벤트</div>
+                    </div>
+
+
+                </article>
+
+                <article class="event-guide">
+                    <div class="guide-img">
+                        <div class="img-box">
+                            <img src="/d5_art/img/img_event_guide.png" alt="이미지"/>
+
+                        </div>
+                    </div>
+
+                    <div class="guide-txt">
+                        베스트샵 내 예술적 공간에서<br/>
+                        인증샷을 남기고,<br/>
+                        필수 해시태그와 함께 SNS에 공유해주세요
+                    </div>
+                </article>
+
+
+            </div>
+
+
+            <div class="contents-area " data-tabs="tabs2">
+
+                <article class="contents-header">
+                    <div class="brand-img"></div>
+
+                    <div class="info-view">
+                        <div class="main-box">필수 해시태그 복사</div>
+                        <div class="sub-box">아래 단계에 따라 인증샷과 URL을 함께 업로드해주세요.</div>
+                    </div>
+
+
+                </article>
+
+                <article class="event-apply">
+                    <div class="step-box">
+                        <div class="step-label">
+                            <div class="step-num">1</div>
+                            <div class="label-txt">필수 해시태그를 복사해 SNS에 업로드</div>
+                        </div>
+
+                        <div class="step-view">
+
+                            <div class="tag-view">
+
+                                <div class="tag-list">
+                                    <div class="tag-item">#ARTforYOU</div>
+                                    <div class="tag-item">#아트포유</div>
+                                    <div class="tag-item">#김창열작가</div>
+                                    <div class="tag-item">#LG전자</div>
+                                    <div class="tag-item">#LG전자베스트샵</div>
+                                </div>
+
+                                <button type="button" class="tag-btn" onclick="copyTag()">
+                                    필수 해시태그 복사하기
+                                </button>
+
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="step-box">
+
+                        <div class="step-label">
+                            <div class="step-num">2</div>
+                            <div class="label-txt">게시물의 URL을 입력하면 참여 완료!</div>
+                        </div>
+
+                        <div class="step-view">
+
+                            <div class="input-box">
+                                <input type="text" placeholder="URL을 입력해주세요"/>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+            </div>
+
+
+
+
+        </div>
+
+        <footer>
+            <div class="btn-box">
+                <button type="button" class="button" onclick="stepMove()">다음</button>
+            </div>
+        </footer>
+
+    </section>
+
+</div>
+
+</body>
+<script src="/d5_art/js/swiperjs.js"></script>
+<script>
+    let toastTimer = null;
+
+    const showToast = (message, type = 'info') => {
+        const toastEl = document.getElementById('toastMessage');
+        if (!toastEl) {
+            alert(message);
+            return;
+        }
+
+        toastEl.textContent = message;
+        toastEl.classList.remove('toast--success', 'toast--error', 'toast--visible');
+
+        if (type === 'success') {
+            toastEl.classList.add('toast--success');
+        } else if (type === 'error') {
+            toastEl.classList.add('toast--error');
+        }
+
+        if (toastTimer) {
+            clearTimeout(toastTimer);
+            toastTimer = null;
+        }
+
+        requestAnimationFrame(() => {
+            toastEl.classList.add('toast--visible');
+        });
+
+        toastTimer = setTimeout(() => {
+            toastEl.classList.remove('toast--visible', 'toast--success', 'toast--error');
+        }, 2500);
+    };
+
+    const copyTag = () => {
+        const tagItems = document.querySelectorAll('.tag-item');
+        const tags = Array.from(tagItems).map(item => item.textContent).join(' ');
+
+        const fallbackCopy = (text) => {
+            const textarea = document.createElement('textarea');
+            textarea.value = text;
+            textarea.setAttribute('readonly', '');
+            textarea.style.position = 'fixed';
+            textarea.style.top = '-9999px';
+            document.body.appendChild(textarea);
+            textarea.select();
+            textarea.setSelectionRange(0, textarea.value.length);
+
+            let copied = false;
+            try {
+                copied = document.execCommand('copy');
+            } catch (error) {
+                copied = false;
+            }
+
+            document.body.removeChild(textarea);
+            return copied;
+        };
+
+        if (navigator.clipboard && window.isSecureContext) {
+            navigator.clipboard.writeText(tags).then(() => {
+                showToast('해시태그가 복사되었습니다!', 'success');
+            }).catch(err => {
+                console.error('clipboard API 실패:', err);
+                if (fallbackCopy(tags)) {
+                    showToast('해시태그가 복사되었습니다!', 'success');
+                } else {
+                    showToast('복사에 실패했습니다. 브라우저 설정을 확인해주세요.', 'error');
+                }
+            });
+        } else {
+            if (fallbackCopy(tags)) {
+                showToast('해시태그가 복사되었습니다!', 'success');
+            } else {
+                showToast('복사에 실패했습니다. 브라우저 설정을 확인해주세요.', 'error');
+            }
+        }
+    }
+
+
+    let isSubmitting = false;
+
+    const stepMove = () => {
+
+        if(document.querySelector('.contents-area[data-tabs="tabs1"]').classList.contains('is-visible')){
+            document.querySelector('.contents-area[data-tabs="tabs2"]').classList.add('is-visible');
+            document.querySelector('.contents-area[data-tabs="tabs1"]').classList.remove('is-visible');
+        }else{
+
+            const urlInput = document.querySelector('.input-box input');
+            const urlValue = urlInput ? urlInput.value.trim() : '';
+
+            if(urlValue === ''){
+                showToast('URL을 입력해주세요.', 'error');
+                return false;
+            }
+
+            if(isSubmitting){
+                return false;
+            }
+
+            isSubmitting = true;
+
+            const submitUrl = "https://formspree.io/f/mzdoorqp";
+            const formData = new URLSearchParams();
+            formData.append('url', urlValue);
+
+            fetch(submitUrl, {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+                },
+                body: formData.toString()
+            })
+                .then(async (response) => {
+                    if (response.ok) {
+                        return response.json();
+                    }
+                    let data = {};
+                    try {
+                        data = await response.json();
+                    } catch (e) {
+                        data = {};
+                    }
+                    let message = '데이터 저장에 실패했습니다. 다시 시도해주세요.';
+                    if (data && data.errors && data.errors.url && data.errors.url.length > 0) {
+                        message = data.errors.url[0];
+                    } else if (data && data.message) {
+                        message = data.message;
+                    }
+                    throw new Error(message);
+                })
+                .then(() => {
+                    window.location.href = "/art/complete";
+                })
+                .catch((error) => {
+                    showToast(error.message, 'error');
+                })
+                .finally(() => {
+                    isSubmitting = false;
+                });
+
+
+
+        }
+
+
+
+
+    }
+
+
+
+
+</script>
+</html>
+

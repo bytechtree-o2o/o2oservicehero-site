@@ -1,0 +1,171 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+<meta content="IE=edge" http-equiv="X-UA-Compatible">
+<meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"
+      name="viewport">
+<meta content="yes" name="apple-mobile-web-app-capable">
+<head>
+    <meta charset="UTF-8">
+    <title>토스x혜택히어로</title>
+    <link href="/ground220/css/reset.css" rel="stylesheet" type="text/css"/>
+    <link href="/ground220/css/swiper.min.css" rel="stylesheet" type="text/css"/>
+    <link href="/ground220/css/ui.css" rel="stylesheet" type="text/css"/>
+    <link href="/ground220/css/style.css" rel="stylesheet" type="text/css"/>
+    <link href="/ground220/css/datepicker.min.css" rel="stylesheet" type="text/css"/>
+</head>
+<body class="">
+
+<section class="main bg-2">
+
+        <section class="main-preview2">
+
+            <div class="inner wrap">
+
+                <div class="intro-box">
+
+                    <div class="intro-img-box">
+                        <img src="/ground220/img/img_main_preview2_intro.svg" alt="이미지">
+
+                    </div>
+
+                    <div class="intro-txt-box">
+                        미션을 클리어 하고 <b>토스포인트 5,000원</b>을 모아보세요.
+                    </div>
+                </div>
+
+                <article class="preview-list-layout1">
+                    <div class="preview-list-box">
+
+                        <div class="preview-item-box">
+                            <div class="view-box">
+                                <div class="img-box">
+                                    <img src="/ground220/img/img_preview2_item1.png" alt="이미지">
+                                </div>
+                            </div>
+                            <div class="info-box">
+
+                                <div class="subject-box">하트코인 미션<br/>
+                                    나만의 루티너 아바타 만들기!</div>
+
+                                <div class="con-box">
+                                    플러그인에서 체크인 박스를 찾아 태그하고<br/>
+                                    로그인 미션을 클리어 한 후 하트코인<br/>
+                                    착용 스텝을 찾아 인증하면 <b class="fc-secondary">1,000원 획득!</b>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="preview-item-box">
+                            <div class="view-box">
+                                <div class="img-box">
+                                    <img src="/ground220/img/img_preview2_item2.png" alt="이미지">
+                                </div>
+                            </div>
+                            <div class="info-box">
+
+                                <div class="subject-box">스타코인 미션<br/>
+                                    나에게 맞는 루틴 경험하고, 즐기기!</div>
+
+                                <div class="con-box">
+                                    내가 원하는 루틴프로그램 2가지 체험하고<br/>
+                                    후기작성까지 완료 한 후 스타코인 착용<br/>
+                                    스텝을 찾아 인증하면 <b class="fc-secondary">3,000원 획득!</b>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="preview-item-box">
+                            <div class="view-box">
+                                <div class="img-box">
+                                    <img src="/ground220/img/img_preview2_item3.png" alt="이미지">
+                                </div>
+                            </div>
+                            <div class="info-box">
+
+                                <div class="subject-box">굿코인 미션<br/>
+                                    GROUND 220 좋아요! 인증하기!</div>
+
+                                <div class="con-box">
+                                    GROUND220 공식 인스타그램 계정<br/>
+                                    (@ground220_official) 팔로우하고 굿코인<br/>
+                                    착용 스텝을 찾아 인증하면 <b class="fc-secondary">1,000원 획득!</b>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class="preview-btn-box">
+                        <article class="page-btn-layout" style="width: 100%;">
+                            <div class="page-btn-list">
+                                <div class="page-btn-box">
+                                    <button type="button" class="page-btn type-transparency" onclick="window.history.back()">
+                                        <span class="txt">뒤로가기</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </article>
+
+
+
+            </div>
+        </section>
+
+
+
+
+    </section>
+<!-- qr 팝업 -->
+
+<script src="/ground220/js/jquery.min.js"></script>
+<script src="/ground220/js/datepicker.min.js"></script>
+<script src="/ground220/js/datepicker.ko.js"></script>
+<script src="/ground220/js/swiperjs.js"></script>
+<script src="/ground220/js/ui.js"></script>
+
+<script type="text/javascript">
+    $(function () {
+        $(".clickUrlBtn")
+            .attr("cursor", "pointer")
+            .on("click", function () {
+                if($(this).attr("click-url") !== undefined) {
+                    window.location.href = $(this).attr("click-url");
+                }
+            });
+
+        $(".submitBtn")
+            .attr("cursor", "pointer")
+            .on("click", function () {
+                submitFunc($(this).attr("action-url"));
+            });
+    });
+</script>
+
+<script type="text/javascript">
+            const previewSwiper = new Swiper('.swiper-preview',{
+                loop : true,
+                slidesPerView : 1.2,
+                centeredSlides : true,
+                spaceBetween : 0,
+
+
+                navigation : {
+                    prevEl : '.swiper-button-prev',
+                    nextEl : '.swiper-button-next',
+                },
+
+                breakpoints : {
+                    500 : {
+                        slidesPerView : 1.2,
+                        centeredSlides : true,
+                        spaceBetween : 0,
+                    }
+                }
+            });
+        </script>
+</body>
+</html>
+

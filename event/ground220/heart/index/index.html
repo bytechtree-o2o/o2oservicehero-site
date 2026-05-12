@@ -1,0 +1,150 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+<meta content="IE=edge" http-equiv="X-UA-Compatible">
+<meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"
+      name="viewport">
+<meta content="yes" name="apple-mobile-web-app-capable">
+<head>
+    <meta charset="UTF-8">
+    <title>토스x혜택히어로</title>
+    <link href="/ground220/css/reset.css" rel="stylesheet" type="text/css"/>
+    <link href="/ground220/css/swiper.min.css" rel="stylesheet" type="text/css"/>
+    <link href="/ground220/css/ui.css" rel="stylesheet" type="text/css"/>
+    <link href="/ground220/css/style.css" rel="stylesheet" type="text/css"/>
+    <link href="/ground220/css/datepicker.min.css" rel="stylesheet" type="text/css"/>
+</head>
+<body class="">
+
+<section class="page">
+
+        <section class="page-intro">
+            <div class="intro-view-box">
+
+                <div class="contents-box">
+
+                    <article class="result-contents-layout1">
+
+                        <div class="inner wrap">
+                            <div class="info-box">
+                                <div class="subject-box">하트코인을 찾으셨군요!</div>
+                            </div>
+                        </div>
+
+                    </article>
+                </div>
+
+                <div class="bg-box">
+                    <img src="/ground220/img/img_page_intro_bg1.png" alt="이미지">
+                </div>
+
+
+            </div>
+        </section>
+
+
+
+        <section class="page-contents">
+
+            <div class="inner wrap">
+                <div class="page-contents-wrap type-result">
+
+                    <div class="contents-result-box">
+                        <div class="img-box">
+                            <img src="/ground220/img/img_heart_coin.svg" alt="이미지">
+                        </div>
+                    </div>
+
+
+                    <div class="contents-label-box type-static">
+                        <div class="label-txt-box">MISSION 01</div>
+                    </div>
+
+
+                    <article class="page-contents-layout1">
+
+
+                        <div class="accent-box">
+                            <b>그라운드220</b> 로그인하고<br/>
+                            나만의 루티너 아바타 만들기!
+                        </div>
+
+                        <div class="app-box mt25">
+
+                            <div class="app-wrap">
+                                <div class="app-img-box">
+                                    <img src="/ground220/img/img_toss_logo.svg" alt="이미지">
+
+                                </div>
+                                <div class="app-info-box">
+                                    <b>토스포인트 1,000원</b><br/>
+                                    참여만 해도 획득 가능!
+                                </div>
+                            </div>
+
+
+                        </div>
+
+
+
+                    </article>
+
+
+
+
+                </div>
+
+                <div class="page-btn-wrap">
+
+                    <article class="page-btn-layout">
+                        <div class="page-btn-list">
+                            <div class="page-btn-box">
+                                <button type="button" class="page-btn type-primary" onclick="window.location.href='/event/ground220/heart/section/1'">
+                                    <span class="txt">미션 시작하기</span>
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+
+            </div>
+
+
+
+
+        </section>
+
+
+
+    </section>
+<!-- qr 팝업 -->
+
+<script src="/ground220/js/jquery.min.js"></script>
+<script src="/ground220/js/datepicker.min.js"></script>
+<script src="/ground220/js/datepicker.ko.js"></script>
+<script src="/ground220/js/swiperjs.js"></script>
+<script src="/ground220/js/ui.js"></script>
+
+<script type="text/javascript">
+    $(function () {
+        $(".clickUrlBtn")
+            .attr("cursor", "pointer")
+            .on("click", function () {
+                if($(this).attr("click-url") !== undefined) {
+                    window.location.href = $(this).attr("click-url");
+                }
+            });
+
+        $(".submitBtn")
+            .attr("cursor", "pointer")
+            .on("click", function () {
+                submitFunc($(this).attr("action-url"));
+            });
+    });
+</script>
+
+
+</body>
+</html>
+

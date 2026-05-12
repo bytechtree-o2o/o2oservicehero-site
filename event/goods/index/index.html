@@ -1,0 +1,116 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+<meta content="IE=edge" http-equiv="X-UA-Compatible">
+<meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"
+      name="viewport">
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta name="csrf-token" content="4qQmWKQEVGyXXfX37AJVbaLnfqvQQiw8vMHVIx7F">
+<head>
+    <meta charset="UTF-8">
+    <title>토스x혜택히어로</title>
+    <link href="/css/reset.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/swiper.min.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/ui.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/style.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/datepicker.min.css" rel="stylesheet" type="text/css"/>
+
+    
+</head>
+<body class="">
+
+
+<section class="page">
+
+        <section class="page-intro">
+            <div class="intro-view-box">
+                <div class="contents-box">
+                    <article class="intro-contents-layout1">
+                        <div class="inner wrap">
+                            <div class="img-box">
+                                <img src="/img/img_good_coin.svg" alt="이미지">
+                            </div>
+
+                            <div class="info-box">
+                                <div class="subject-box">굿코인을 찾아<br/>
+                                    태그 해보세요</div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="bg-box">
+                </div>
+            </div>
+        </section>
+
+        <section class="page-contents">
+            <div class="inner wrap">
+                <div class="page-contents-wrap">
+                    <div class="contents-label-box">
+                        <div class="label-txt-box">HINT</div>
+                    </div>
+                    <article class="page-contents-layout1">
+                        <div class="info-box">
+                            <div class="subject-box">
+                                <b>매장 테이블 위</b>에 있는 <b>굿코인</b>을 찾아<br/>
+                                <b>스마트폰을 태그</b>하세요!
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+    </section>
+
+
+<!-- qr 팝업 -->
+
+<script src="/js/jquery.min.js"></script>
+<script src="/js/datepicker.min.js"></script>
+<script src="/js/datepicker.ko.js"></script>
+<script src="/js/swiper.js"></script>
+<script src="/js/ui.js"></script>
+
+<script type="text/javascript">
+    const answerSubmitFunc = (submitUrl, params, successCall) => {
+        $.ajax({
+            method: "POST",
+            url: submitUrl,
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            data: params,
+            dataType: "json",
+            async: false,
+            beforeSend: function (jqXHR, settings) {
+
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+
+            },
+            success: successCall,
+            complete: function (jqXHR, textStatus) {
+
+            }
+        });
+    };
+    
+
+    $(function () {
+        $(".clickUrlBtn")
+            .attr("cursor", "pointer")
+            .on("click", function () {
+                if($(this).attr("click-url") !== undefined) {
+                    window.location.href = $(this).attr("click-url");
+                }
+            });
+    });
+</script>
+
+
+
+</body>
+</html>
+

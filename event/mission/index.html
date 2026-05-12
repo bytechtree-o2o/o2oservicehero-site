@@ -1,0 +1,236 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"
+          name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta name="csrf-token" content="L6VaVAXfxdu9rI9Cq2bZAKdZb8A2ByVvJQLl5AYa">
+<head>
+    <meta charset="UTF-8">
+    <title>토스x혜택히어로</title>
+    <link href="/css/reset.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/swiper.min.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/ui.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/style.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/datepicker.min.css" rel="stylesheet" type="text/css"/>
+</head>
+<body class="">
+
+    <section class="main bg-2">
+
+        <section class="main-preview">
+
+            <div class="inner wrap">
+
+                <div class="intro-box">
+
+                    <div class="intro-img-box">
+                        <img src="/img/img_main_preview_intro.png" alt="이미지">
+
+                    </div>
+
+                    <div class="intro-txt-box">
+                        혜택플레이스 내 <혜택코인>을 찾아 스마트폰을 태그!<br/>
+                        미션을 클리어 하고 <b>토스포인트 2,000원</b>을 모아보세요.
+                    </div>
+                </div>
+
+                <div class="preview-box">
+
+                    <div class="swiper-group-box">
+
+                        <div class="swiper swiper-preview">
+
+                            <div class="swiper-button-prev"></div>
+                            <div class="swiper-button-next"></div>
+
+                            <ul class="swiper-wrapper">
+                                <li class="swiper-slide swiper-slide-active">
+
+                                    <div class="item-wrap">
+
+                                        <div class="item-contents-wrap">
+                                            <div class="coin-box">
+                                                <img src="/img/img_preview_item1.png" alt="이미지">
+                                            </div>
+
+                                            <div class="label-box">
+                                                <div class="label-txt">MISSION 01</div>
+                                            </div>
+
+                                            <div class="subject-box">체험하고, 즐기기!<br/>
+                                                하트코인 미션</div>
+
+                                            <div class="con-box">
+                                                <b>하트코인</b>을 찾아<br/>
+                                                미션을 클리어 하면 <b class="fc-secondary">400원 획득!</b>
+                                            </div>
+                                        </div>
+
+
+
+                                    </div>
+
+                                </li>
+
+                                <li class="swiper-slide">
+
+                                    <div class="item-wrap">
+
+                                        <div class="item-contents-wrap">
+                                            <div class="coin-box">
+                                                <img src="/img/img_preview_item2.png" alt="이미지">
+                                            </div>
+
+                                            <div class="label-box">
+                                                <div class="label-txt">MISSION 02</div>
+                                            </div>
+
+                                            <div class="subject-box">
+                                                관심가전 찾기!<br/>
+                                                스타코인 미션
+                                            </div>
+
+                                            <div class="con-box">
+                                                <b>스타코인</b>을 찾아<br/>
+                                                미션을 클리어 하면 <b class="fc-secondary">600원 획득!</b>
+                                            </div>
+                                        </div>
+
+
+
+
+
+                                    </div>
+
+                                </li>
+
+                                <li class="swiper-slide">
+
+                                    <div class="item-wrap">
+
+                                        <div class="item-contents-wrap">
+                                            <div class="coin-box">
+                                                <img src="/img/img_preview_item3.png" alt="이미지">
+                                            </div>
+
+                                            <div class="label-box">
+                                                <div class="label-txt">MISSION 03</div>
+                                            </div>
+
+                                            <div class="subject-box">
+                                                인증하기!<br/>
+                                                굿코인 미션
+                                            </div>
+
+                                            <div class="con-box">
+                                                <b>굿코인</b>을 찾아<br/>
+                                                미션을 클리어 하면 <b class="fc-secondary">1,000원 획득!</b>
+                                            </div>
+
+                                        </div>
+
+
+                                    </div>
+
+                                </li>
+                            </ul>
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="link-btn-box">
+                    <button type="button" class="link-btn clickUrlBtn"
+                            click-url="/event/heart/index">
+                        <span class="txt">미션 시작하기</span>
+                    </button>
+                </div>
+
+            </div>
+        </section>
+
+
+
+
+    </section>
+
+<!-- qr 팝업 -->
+
+<script src="/js/jquery.min.js"></script>
+<script src="/js/datepicker.min.js"></script>
+<script src="/js/datepicker.ko.js"></script>
+<script src="/js/swiper.js"></script>
+<script src="/js/ui.js"></script>
+
+    <script type="text/javascript">
+        $(function () {
+            $(".clickUrlBtn")
+                .attr("cursor", "pointer")
+                .on("click", function () {
+                    if($(this).attr("click-url") !== undefined) {
+                        window.location.href = $(this).attr("click-url");
+                    }
+                });
+
+            $(".submitBtn")
+                .attr("cursor", "pointer")
+                .on("click", function () {
+                    submitFunc($(this).attr("action-url"));
+                });
+        });
+    </script>
+
+<script type="text/javascript">
+            const previewSwiper = new Swiper('.swiper-preview',{
+                loop : true,
+                slidesPerView : 1.2,
+                centeredSlides : true,
+                spaceBetween : 0,
+
+                navigation : {
+                    prevEl : '.swiper-button-prev',
+                    nextEl : '.swiper-button-next',
+                },
+
+                breakpoints : {
+                    500 : {
+                        slidesPerView : 1.2,
+                        centeredSlides : true,
+                        spaceBetween : 0,
+                    }
+                }
+            });
+        </script>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FCF687HLB8"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-FCF687HLB8');
+    </script>
+
+    <!-- Matomo -->
+    <script>
+        var _paq = window._paq = window._paq || [];
+        /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+        _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
+        (function() {
+            var u="//analytics.bytechtree.com/";
+            _paq.push(['setTrackerUrl', u+'matomo.php']);
+            _paq.push(['setSiteId', '6']);
+            var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+            g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+        })();
+    </script>
+    <!-- End Matomo Code -->
+
+</body>
+</html>
+

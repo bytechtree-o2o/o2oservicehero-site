@@ -1,0 +1,485 @@
+@charset "UTF-8";
+/*
+AUTH : ssooya
+VERSION : version 2
+*/
+/**********
+펑션
+***********/
+/**********
+텍스트 자간
+***********/
+/**********
+텍스트 말줄임
+***********/
+/**********
+아이콘
+***********/
+.container {
+  max-width: 700px;
+  margin: 0 auto;
+  min-height: 100dvh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+section.page {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+section.page .wrap {
+  padding: 0 24px;
+}
+
+header {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  z-index: 100;
+}
+header .wrap {
+  display: flex;
+  align-items: center;
+  height: 72px;
+  padding: 0 24px;
+}
+header .wrap .back-btn {
+  background: url("../img/ic_back.svg") no-repeat center/cover;
+  width: 24px;
+  height: 24px;
+}
+
+section.main {
+  background: #f4f4f4 url("../img/img_main_bg.png") no-repeat top center/100% auto;
+  padding: 100px 0 48px;
+}
+section.main .logo-box {
+  display: flex;
+  margin: 0 auto;
+  width: 258px;
+  aspect-ratio: 258/184;
+}
+section.main .logo-box img {
+  max-width: 100%;
+}
+section.main .desc-box {
+  text-align: center;
+  padding-top: 40px;
+}
+section.main .desc-box .desc-item {
+  font-size: 16px;
+  line-height: 140%;
+  letter-spacing: -0.02em;
+}
+section.main .desc-box .desc-item + .desc-item {
+  margin-top: 16px;
+}
+section.main .btn-box {
+  padding-top: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+section.main .btn-box .button {
+  border-radius: 999px;
+  background: url("../img/img_button_bg.png") no-repeat center/cover;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  line-height: 140%;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  height: 48px;
+}
+section.main .btn-box .button:active {
+  background: url("../img/img_button_active_bg.png") no-repeat center/cover;
+}
+
+section.event {
+  padding: 72px 0 0;
+  background: #2d2d2d;
+}
+section.event .event-intro {
+  padding-bottom: 24px;
+  text-align: center;
+  color: #fff;
+}
+section.event .event-intro .sub-box {
+  padding-bottom: 12px;
+  font-size: 16px;
+  line-height: 140%;
+  letter-spacing: -0.02em;
+}
+section.event .event-intro .main-box {
+  font-size: 28px;
+  line-height: 140%;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+}
+section.event .event-intro .date-box {
+  padding-top: 12px;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 140%;
+  letter-spacing: -0.02em;
+}
+section.event .event-container {
+  flex: 1;
+  min-height: 0;
+  background-color: #f4f4f4;
+  padding: 30px 24px;
+  border-radius: 24px 24px 0 0;
+}
+section.event .event-container .event-section {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 20px;
+}
+section.event .event-container .event-section + .event-section {
+  margin-top: 12px;
+}
+section.event .event-container .event-section .tag-box {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 8px;
+}
+section.event .event-container .event-section .tag-box .tag-label {
+  padding: 0 4px;
+  font-size: 12px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 20px;
+  border-radius: 4px;
+  background: #e6e6e6;
+}
+section.event .event-container .event-section .note-box {
+  text-align: center;
+}
+section.event .event-container .event-section .note-box .note-item {
+  text-align: center;
+  font-size: 11px;
+  line-height: 140%;
+  letter-spacing: -0.02em;
+  color: #a6a4a5;
+}
+section.event .event-container .event-section .label-box {
+  padding-bottom: 16px;
+  display: flex;
+  justify-content: center;
+}
+section.event .event-container .event-section .label-box .label-txt {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 70px;
+  padding: 0 10px;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: -0.02em;
+  border-radius: 999px;
+  height: 26px;
+  background: #2d2d2d;
+  color: #fff;
+}
+section.event .event-container .event-section .guide-group .desc-box {
+  font-size: 14px;
+  line-height: 140%;
+  letter-spacing: -0.02em;
+  text-align: center;
+}
+section.event .event-container .event-section .guide-group .desc-box .red {
+  color: #fd312e;
+}
+section.event .event-container .event-section .guide-group .hashtag-box {
+  padding-top: 16px;
+}
+section.event .event-container .event-section .guide-group .hashtag-box .keyword-list {
+  border: 1px solid #e6e6e6;
+  border-radius: 999px;
+  padding: 12px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  flex-flow: row wrap;
+}
+section.event .event-container .event-section .guide-group .hashtag-box .keyword-list .keyword {
+  font-size: 14px;
+  line-height: 140%;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+  color: #2d2d2d;
+}
+section.event .event-container .event-section .reward-group .benefit-box {
+  text-align: center;
+  font-size: 14px;
+  line-height: 140%;
+  letter-spacing: -0.02em;
+}
+section.event .event-container .event-section .reward-group .benefit-box b {
+  color: #2d2d2d;
+}
+section.event .event-container .event-section .reward-group .way-box {
+  padding: 16px 0;
+  margin: 16px 0;
+  border-bottom: 1px solid #e6e6e6;
+  border-top: 1px solid #e6e6e6;
+}
+section.event .event-container .event-section .reward-group .way-box .txt-box {
+  text-align: center;
+  font-size: 14px;
+  line-height: 140%;
+  letter-spacing: -0.02em;
+}
+section.event .event-container .event-section .benefit-group .tit-box {
+  padding-bottom: 16px;
+  font-size: 14px;
+  line-height: 140%;
+  letter-spacing: -0.02em;
+  text-align: center;
+}
+section.event .event-container .event-section .benefit-group .tit-box b {
+  color: #2d2d2d;
+}
+section.event .event-container .event-section .benefit-group .goods-list {
+  display: flex;
+  max-width: 216px;
+  margin: 0 auto;
+  gap: 16px;
+}
+section.event .event-container .event-section .benefit-group .goods-list .goods-item {
+  width: 100%;
+}
+section.event .event-container .event-section .benefit-group .goods-list .goods-item .img-box {
+  aspect-ratio: 1/1;
+}
+section.event .event-container .event-section .benefit-group .goods-list .goods-item .img-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+section.event .event-container .event-section .benefit-group .goods-list .goods-item .info-box {
+  padding-top: 8px;
+  text-align: center;
+}
+section.event .event-container .event-section .benefit-group .goods-list .goods-item .info-box .subject-box {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 140%;
+  letter-spacing: -0.02em;
+  color: #2d2d2d;
+}
+section.event .event-container .event-section .benefit-group .goods-list .goods-item .info-box .con-box {
+  font-size: 14px;
+  line-height: 140%;
+  letter-spacing: -0.02em;
+}
+section.event .event-container .event-section .benefit-group .winner-box {
+  padding: 16px 0;
+  margin: 16px 0;
+  border-bottom: 1px solid #e6e6e6;
+  border-top: 1px solid #e6e6e6;
+}
+section.event .event-container .event-section .benefit-group .winner-box .txt-box {
+  text-align: center;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 140%;
+  letter-spacing: -0.02em;
+  color: #2d2d2d;
+}
+section.event .event-footer {
+  background: #f4f4f4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+}
+
+section.information {
+  padding: 72px 0 0;
+}
+section.information .information-intro {
+  padding-bottom: 24px;
+  text-align: center;
+}
+section.information .information-intro .sub-box {
+  font-size: 16px;
+  line-height: 140%;
+  letter-spacing: -0.02em;
+  color: #6b6869;
+}
+section.information .information-intro .main-box {
+  font-size: 16px;
+  line-height: 140%;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+}
+section.information .information-container .container-label {
+  margin-bottom: 10px;
+  border-radius: 24px 24px 0 0;
+  height: 54px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #2d2d2d;
+}
+section.information .information-container .container-label .label-box {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 140%;
+  letter-spacing: -0.02em;
+  color: #fff;
+}
+section.information .information-container .information-section + .information-section {
+  margin-top: 80px;
+}
+section.information .information-container .information-section .section-header {
+  padding: 20px;
+}
+section.information .information-container .information-section .section-header .location-box {
+  text-align: center;
+  padding-bottom: 12px;
+}
+section.information .information-container .information-section .section-header .location-box .location-txt {
+  font-size: 14px;
+  line-height: 140%;
+  color: #6b6869;
+  letter-spacing: -0.02em;
+}
+section.information .information-container .information-section .section-header .symbol-box {
+  padding-bottom: 12px;
+  display: flex;
+  justify-content: center;
+}
+section.information .information-container .information-section .section-header .symbol-box img {
+  max-width: 100%;
+}
+section.information .information-container .information-section .section-header .subject-box {
+  text-align: center;
+}
+section.information .information-container .information-section .section-header .subject-box .main-box {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 140%;
+  letter-spacing: -0.02em;
+  color: #2d2d2d;
+}
+section.information .information-container .information-section .section-header .subject-box .sub-box {
+  font-size: 13px;
+  line-height: 140%;
+  letter-spacing: -0.02em;
+}
+section.information .information-container .information-section .section-header .desc-box {
+  padding-top: 12px;
+}
+section.information .information-container .information-section .section-header .desc-box .desc-item {
+  text-align: center;
+  font-size: 11px;
+  line-height: 140%;
+  letter-spacing: -0.02em;
+  color: #6b6869;
+}
+section.information .information-container .information-section .section-viewer .swiper-group-box .swiper-pagination {
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+}
+section.information .information-container .information-section .section-viewer .swiper-group-box .swiper-pagination .swiper-pagination-bullet {
+  margin: 0;
+  opacity: 1;
+  background: #e6e6e6;
+  width: 8px;
+  height: 8px;
+}
+section.information .information-container .information-section .section-viewer .swiper-group-box .swiper-pagination .swiper-pagination-bullet-active {
+  background: #4c484a;
+}
+section.information .information-container .information-section .section-viewer .swiper-group-box .swiper {
+  padding-bottom: 26px;
+}
+section.information .information-container .information-section .section-viewer .swiper-group-box .item-wrap {
+  display: block;
+}
+section.information .information-container .information-section .section-viewer .swiper-group-box .item-wrap .view-box {
+  position: relative;
+}
+section.information .information-container .information-section .section-viewer .swiper-group-box .item-wrap .view-box .img-box {
+  aspect-ratio: 1/1;
+  display: flex;
+}
+section.information .information-container .information-section .section-viewer .swiper-group-box .item-wrap .view-box .img-box.ratio-rectangle {
+  aspect-ratio: 360/202;
+}
+section.information .information-container .information-section .section-viewer .swiper-group-box .item-wrap .view-box .img-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+section.information .information-container .information-section .section-viewer .swiper-group-box .item-wrap .info-box {
+  padding: 20px 20px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+section.information .information-container .information-section .section-viewer .swiper-group-box .item-wrap .info-box .subject-box {
+  text-align: center;
+  font-size: 15px;
+  line-height: 140%;
+  letter-spacing: -0.02em;
+  color: #2d2d2d;
+  font-weight: 700;
+}
+section.information .information-container .information-section .section-viewer .swiper-group-box .item-wrap .info-box .con-box {
+  text-align: center;
+  font-size: 11px;
+  line-height: 140%;
+  letter-spacing: -0.02em;
+}
+section.information .information-container .information-section .section-viewer .swiper-group-box .item-wrap .info-box .con-box.text-left {
+  text-align: left;
+}
+section.information .information-footer {
+  padding-top: 65px;
+}
+section.information .information-footer .footer-edge {
+  background: url("../img/img_information_edge.svg") no-repeat center top/cover;
+  aspect-ratio: 360/52;
+  width: 100%;
+  display: block; /* inline 기본 속성 제거 */
+}
+section.information .information-footer .footer-contents {
+  padding: 24px 24px 40px;
+  background: #2d2d2d;
+}
+section.information .information-footer .footer-contents .desc-box .desc-item {
+  text-align: center;
+  font-size: 14px;
+  line-height: 140%;
+  letter-spacing: -0.02em;
+  color: #fff;
+}
+section.information .information-footer .footer-contents .desc-box .desc-item + .desc-item {
+  margin-top: 16px;
+}
+section.information .information-footer .footer-contents .footer-logo {
+  padding-top: 60px;
+  display: flex;
+  justify-content: center;
+}
+section.information .information-footer .footer-contents .footer-logo img {
+  max-width: 100%;
+}
+
+/*# sourceMappingURL=style.css.map */

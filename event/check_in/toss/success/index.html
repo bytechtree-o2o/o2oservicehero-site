@@ -1,0 +1,117 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"
+          name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta name="csrf-token" content="rHiAX5TQeyIEragEZWHpZAaWr15f4FWmhspcSg1w">
+<head>
+    <meta charset="UTF-8">
+    <title>토스x혜택히어로</title>
+    <link href="/css/reset.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/swiper.min.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/ui.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/style.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/datepicker.min.css" rel="stylesheet" type="text/css"/>
+</head>
+<body class="">
+
+    <section class="main bg-2">
+
+        <section class="main-checkin-success">
+            <div class="inner wrap">
+                <div class="intro-box">
+                    <div class="img-box">
+                        <img src="/img/img_checkin_success.svg" alt="이미지">
+                    </div>
+
+                    <div class="main-box">
+                        체크인이<br/>
+                        완료되었습니다
+                    </div>
+
+                    <div class="sub-box">
+                        지금 바로 매장 내 <b>혜택코인을 태그</b>하고<br/>
+                        체험미션을 시작해보세요!
+                    </div>
+                </div>
+
+                <div class="info-box">
+                    <div class="img-box">
+                        <img src="/img/img_nfc.png" alt="이미지">
+                    </div>
+
+                    <div class="txt-box">
+                        기기별로 NFC위치가 다르니 <b>그림을 참고하여 태그</b>해주세요.
+                        안드로이드 OS의 경우 <b>NFC 기능을 ON</b>으로 설정해주세요.
+                    </div>
+                </div>
+
+                <div class="feature-menu-list">
+                    <div class="feature-menu-box">
+                        <a href="/event/mission" class="feature-menu-btn type-primary"><span class="txt">혜택코인미션 알아보기</span></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </section>
+
+<!-- qr 팝업 -->
+
+<script src="/js/jquery.min.js"></script>
+<script src="/js/datepicker.min.js"></script>
+<script src="/js/datepicker.ko.js"></script>
+<script src="/js/swiper.js"></script>
+<script src="/js/ui.js"></script>
+
+    <script type="text/javascript">
+        $(function () {
+            $(".clickUrlBtn")
+                .attr("cursor", "pointer")
+                .on("click", function () {
+                    if($(this).attr("click-url") !== undefined) {
+                        window.location.href = $(this).attr("click-url");
+                    }
+                });
+
+            $(".submitBtn")
+                .attr("cursor", "pointer")
+                .on("click", function () {
+                    submitFunc($(this).attr("action-url"));
+                });
+        });
+    </script>
+
+
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FCF687HLB8"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-FCF687HLB8');
+    </script>
+
+    <!-- Matomo -->
+    <script>
+        var _paq = window._paq = window._paq || [];
+        /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+        _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
+        (function() {
+            var u="//analytics.bytechtree.com/";
+            _paq.push(['setTrackerUrl', u+'matomo.php']);
+            _paq.push(['setSiteId', '6']);
+            var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+            g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+        })();
+    </script>
+    <!-- End Matomo Code -->
+
+</body>
+</html>
+

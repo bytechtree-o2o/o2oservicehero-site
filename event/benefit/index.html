@@ -1,0 +1,268 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"
+          name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta name="csrf-token" content="ImWzMFWB9MoDad3Ao5iNEeIEdZjFkS0UOepPsSFo">
+<head>
+    <meta charset="UTF-8">
+    <title>토스x혜택히어로</title>
+    <link href="/css/reset.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/swiper.min.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/ui.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/style.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/datepicker.min.css" rel="stylesheet" type="text/css"/>
+</head>
+<body class="">
+
+    <section class="main bg-2">
+
+        <section class="main-benefit">
+            <div class="inner wrap">
+                <div class="benefit-head-box">
+                    <i class="ic ic-benefit"></i>
+                    <span class="txt">혜택플레이스</span>
+                </div>
+
+                <div class="benefit-search-box">
+
+                    <div class="tbox with-search with-clear">
+                        <input type="text" name="search_shop_name" id="searchShopName" placeholder="도시명으로 검색 (예, 서울시)">
+                        <a href="#none" class="clear-btn"></a>
+
+                        <button type="button" class="search-submit-btn" id="searchShopNameBtn" disabled>검색하기</button>
+
+                    </div>
+
+                </div>
+
+                <div class="benefit-btn-box">
+                    <button type="button" class="benefit-btn" onclick="popupOpen('shop')">
+                        <i class="ic ic-place"></i>
+                        <span class="txt">혜택히어로 매장 전체 한 눈에 보기</span>
+                    </button>
+                </div>
+
+                <div class="benefit-list-wrap">
+                    <div class="list-head-box">
+                        <div class="head-box">혜택히어로 매장보기</div>
+                        <div class="filter-box">
+                            <a href="#!" class="filter-btn active">거리순</a>
+                            <a href="#!" class="filter-btn">혜택순</a>
+                        </div>
+                    </div>
+
+                    <div class="list-body-box">
+                        <ul id="benefitListLayer">
+                                                                                </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <aside class="floating-top">
+            <a href="javascript:$(window).scrollTop(0)" class="floating-top"></a>
+        </aside>
+
+        <article class="popup popup-shop" style="display: block">
+            <div class="popup-wrapper">
+                <a href="javascript:popupClose('shop')" class="popup-close-btn"></a>
+                <div class="popup-contents">
+                    <div class="popup-contents-box">
+                        <article class="popup-shop-view">
+                            <div class="shop-head-box">혜택히어로 2월 이벤트 매장 안내</div>
+                            <div class="shop-info-box">
+                                <div class="row">
+                                    <div class="subject-box">
+                                        <i class="ic ic-place"></i>
+                                        <span class="txt">이벤트 장소</span>
+                                    </div>
+
+                                    <div class="con-box">LG전자 베스트샵 전국 100개점</div>
+                                </div>
+                                <div class="row">
+                                    <div class="subject-box">
+                                        <i class="ic ic-calendar"></i>
+                                        <span class="txt">이벤트 기간</span>
+                                    </div>
+
+                                    <div class="con-box">2월 2일(목) ~ 2월 29일(목)</div>
+                                </div>
+                            </div>
+                            <div class="shop-view-box">
+                                <div class="img-box">
+                                    <img src="/img/img_shop_view.png" alt="이미지">
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+
+            </div>
+        </article>
+
+    </section>
+
+<!-- qr 팝업 -->
+
+<script src="/js/jquery.min.js"></script>
+<script src="/js/datepicker.min.js"></script>
+<script src="/js/datepicker.ko.js"></script>
+<script src="/js/swiper.js"></script>
+<script src="/js/ui.js"></script>
+
+    <script type="text/javascript">
+        $(function () {
+            $(".clickUrlBtn")
+                .attr("cursor", "pointer")
+                .on("click", function () {
+                    if($(this).attr("click-url") !== undefined) {
+                        window.location.href = $(this).attr("click-url");
+                    }
+                });
+
+            $(".submitBtn")
+                .attr("cursor", "pointer")
+                .on("click", function () {
+                    submitFunc($(this).attr("action-url"));
+                });
+        });
+    </script>
+
+<script type="text/javascript">
+            let listFormat = (data) => {
+                let listHtml = "";
+
+                for(let i=0; i<data.length; i++) {
+                    listHtml += "<li>";
+                    listHtml += "    <a href=\"" + data[i].shop_addr_dong + "\" target=\"_blank\" class=\"item-wrap\">";
+                    listHtml += "        <div class=\"info-box\">";
+                    listHtml += "            <div class=\"subject-box\">";
+                    listHtml += "                <span class=\"subject-txt\">" + data[i].shop_name + "</span>";
+                    // listHtml += "                <span class=\"label-txt\">" + data[i].shop_point.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",") + "원</span>";
+                    listHtml += "            </div>";
+                    listHtml += "            <div class=\"sub-box\">";
+                    listHtml += "                <div class=\"sub-item accent\">" + (parseInt(data[i].dist) < 1000 ? parseInt(data[i].dist) + "m" : parseInt(data[i].dist_k) + "km") + "</div>";
+                    listHtml += "                <div class=\"sub-item\">" + data[i].shop_addr + "</div>";
+                    listHtml += "            </div>";
+                    listHtml += "            <div class=\"con-box\">";
+                    listHtml += "                <div class=\"con-item-box\">";
+                    listHtml += "                    <div class=\"item-label-box\">" + data[i].shop_open + "</div>";
+                    listHtml += "                    <div class=\"item-info-box\">" + data[i].shop_end_times + "에 영업종료</div>";
+                    listHtml += "                </div>";
+                    listHtml += "            </div>";
+                    listHtml += "        </div>";
+                    listHtml += "        <div class=\"view-box\">";
+                    listHtml += "            <div class=\"img-box\">";
+                    listHtml += "                <img src=\"/img/img_benefit_thumb.png\" alt=\"이미지\">";
+                    listHtml += "            </div>";
+                    listHtml += "        </div>";
+                    listHtml += "    </a>";
+                    listHtml += "</li>";
+                }
+                $("#benefitListLayer").empty().html(listHtml);
+            }
+            let myPosition = (searchShop) => {
+                let optn = {enableHighAccuracy : true, timeout : 30000, maximumage: 0};
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    let params = {
+                        lat: position.coords.latitude,
+                        lng: position.coords.longitude,
+                        searchShopName: searchShop
+                    };
+                    $.ajax({
+                        method: "POST",
+                        url: "/event/benefit",
+                        headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                        },
+                        data: params,
+                        dataType: "json",
+                        async: false,
+                        beforeSend: function (jqXHR, settings) {
+
+                        },
+                        error: function (jqXHR, textStatus, errorThrown) {
+
+                        },
+                        success: function (data) {
+                            if(data.resCode === "0000") {
+                                listFormat(data.resData);
+                            }
+                        },
+                        complete: function (jqXHR, textStatus) {
+
+                        }
+                    });
+                }, function(position) { console.log(position); }, optn);
+            }
+            $(function () {
+                myPosition("");
+
+                $("#currentPositionBtn")
+                    .on("click", function (e) {
+                        e.preventDefault();
+                        if(navigator.geolocation) {
+                            myPosition("");
+                        }
+                    });
+
+                $("#searchShopName")
+                    .on("keyup", (e) => {
+                        e.preventDefault();
+                        if(e.keyCode == 13) {
+                            myPosition($("#searchShopName").val());
+                        }
+
+                        if($("#searchShopName").val().trim() != "") {
+                            $('.search-submit-btn').prop('disabled',false);
+                        } else {
+                            $('.search-submit-btn').prop('disabled',true);
+                        }
+                    });
+
+                $("#searchShopNameBtn")
+                    .on("click", (e) => {
+                        e.preventDefault();
+                        myPosition($("#searchShopName").val());
+                    })
+
+                $('.filter-btn').on('click', function () {
+
+                    $('.filter-btn').removeClass('active');
+                    $(this).addClass('active')
+                });
+            });
+        </script>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FCF687HLB8"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-FCF687HLB8');
+    </script>
+
+    <!-- Matomo -->
+    <script>
+        var _paq = window._paq = window._paq || [];
+        /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+        _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
+        (function() {
+            var u="//analytics.bytechtree.com/";
+            _paq.push(['setTrackerUrl', u+'matomo.php']);
+            _paq.push(['setSiteId', '6']);
+            var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+            g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+        })();
+    </script>
+    <!-- End Matomo Code -->
+
+</body>
+</html>
+
